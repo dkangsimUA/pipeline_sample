@@ -1,0 +1,10 @@
+
+  {
+    "apiToken": "ngZZK8IxIeJiOs8Y5U6FtbYoeJbkk4CjofJkGGYu",
+    "apiDatacenterID": "iad1",
+    "apiLibraryID": "GR_8DiwObUzWRKAISy",
+    "qsfFileLocation": "./2_governance_survey_generation/3_generated_gov_qsf_files/MEX/2022-09-17/",
+    "importSurveyInputCSV": "./3_qualtrics_survey_upload/0_surveylist/MEX_surveylist_2022-09-17.csv",
+    "uploadSurveyScriptOutputCSV": "./3_qualtrics_survey_upload/2_upload_results/result-survey-upload_MEX_2022-09-19.csv",
+    "assignSurveyScriptOutputCSV": "./3_qualtrics_survey_upload/3_assign_results/result-survey-assignment_MEX_2022-09-19.csv"
+  }

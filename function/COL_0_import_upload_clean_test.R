@@ -1,29 +1,18 @@
 ##############################
-# Kelsey Gonzalez
-# 4/13/2021
 # this script edits the json that pulls on the most recent surveylist and
 # established output for python API scripts
 ###############################
 
 
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(jsonlite, here, glue, tidyverse, reticulate, beepr, blastula, keyring, Rcpp)
-
-
-# SET COUNTRY CODE FOR CORRECT COUNTRY, AFG or COL 
-country_code <- "COL"
-
-#################################################################
-# find newest surveylist for respective country code
-files <- list.files(here("3_qualtrics_survey_upload", "0_surveylist")) # find list of all survey results
-files <- files[str_detect(files, glue("^{country_code}_"))] # select Colombia/Afghanistan results
-newest_surveylist <- sort(files, decreasing = TRUE)[1] # pick newest survey results 
-newest_surveylist
-
+pacman::p_load(jsonlite, here, glue, tidyverse, 
+               reticulate, beepr, blastula, keyring, 
+               Rcpp)
 
 #################################################################
 # load json file for Python
-json_data <- read_json(here("3_qualtrics_survey_upload", "qualtricsSurveyConfig.json"))
+json_data <- read_json(here("function", 
+                            "qualtricsSurveyConfig.json"))
 
 ## Each time we run this, the script updates the json file with current info
 ## Instructions for the API tokens are found in 'Qualtrics Import and Assign
@@ -35,16 +24,16 @@ json_data <- read_json(here("3_qualtrics_survey_upload", "qualtricsSurveyConfig.
  json_data$apiLibraryID <- "GR_8DiwObUzWRKAISy"
 
 # Declare the folder with all the qsf files
-json_data$qsfFileLocation <- glue("./2_governance_survey_generation/3_generated_gov_qsf_files/{country_code}/{Sys.Date()}/") # 
+json_data$qsfFileLocation <- glue("../input/generated_qsf_files/COL/") # 
 
 # This is the "surveylist.csv" file matching the .qsf survey file per respondent for upload in Qualtrics
-json_data$importSurveyInputCSV <- glue("./3_qualtrics_survey_upload/0_surveylist/{newest_surveylist}")
+json_data$importSurveyInputCSV <- glue("../input/surveylist/COL/COL_surveylist.csv")
 
 # Indicate the new file to store the Qualtrics meta data of the uploaded surveys 
-json_data$uploadSurveyScriptOutputCSV <- glue("./3_qualtrics_survey_upload/2_upload_results/result-survey-upload_{country_code}_{Sys.Date()}.csv")
+json_data$uploadSurveyScriptOutputCSV <- glue("../output/result-survey-upload_COL.csv")
 
 # Indicate the new file to store the Qualtrics meta data of the assigned Qualtrics surveys 
-json_data$assignSurveyScriptOutputCSV <- glue("./3_qualtrics_survey_upload/3_assign_results/result-survey-assignment_{country_code}_{Sys.Date()}.csv")
+json_data$assignSurveyScriptOutputCSV <- glue("../output/result-survey-assignment_COL.csv")
 
 
 # save over the json file with current information
