@@ -10,8 +10,7 @@ import requests
 # path = os.path.abspath(os.path.dirname(__file__))
 # print(os.getcwd())
 
-# strConfigFileLocation = "./3_qualtrics_survey_upload/qualtricsSurveyConfig.json"
-strConfigFileLocation = './3_qualtrics_survey_upload/qualtricsSurveyConfig.json'
+strConfigFileLocation = './function/qualtricsSurveyConfig.json'
 with open(strConfigFileLocation, encoding="utf8", errors="ignore") as fileConfig:
 	objConfig = json.load(fileConfig)
 

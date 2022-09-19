@@ -19,16 +19,16 @@ json_data <- read_json(here("function",
  json_data$apiLibraryID <- "GR_8DiwObUzWRKAISy"
 
 # Declare the folder with all the qsf files
-json_data$qsfFileLocation <- glue("./input/generated_qsf_files/COL/") # 
+json_data$qsfFileLocation <- glue("./input/generated_qsf_files/MEX/") # 
 
 # This is the "surveylist.csv" file matching the .qsf survey file per respondent for upload in Qualtrics
-json_data$importSurveyInputCSV <- glue("./input/surveylist/COL/COL_surveylist.csv")
+json_data$importSurveyInputCSV <- glue("./input/surveylist/MEX/MEX_surveylist.csv")
 
 # Indicate the new file to store the Qualtrics meta data of the uploaded surveys 
-json_data$uploadSurveyScriptOutputCSV <- glue("./output/result-survey-upload_COL.csv")
+json_data$uploadSurveyScriptOutputCSV <- glue("./output/result-survey-upload_MEX.csv")
 
 # Indicate the new file to store the Qualtrics meta data of the assigned Qualtrics surveys 
-json_data$assignSurveyScriptOutputCSV <- glue("./output/result-survey-assignment_COL.csv")
+json_data$assignSurveyScriptOutputCSV <- glue("./output/result-survey-assignment_MEX.csv")
 
 
 # save over the json file with current information
@@ -44,7 +44,7 @@ json_data %>%
 ## PYTHON TIME!
 ## If this is your first time running the script on your computer, you need to
 # Download packages only once
-py_install("requests")
+#py_install("requests")
 
 # this import your current path to python
 py_config() 

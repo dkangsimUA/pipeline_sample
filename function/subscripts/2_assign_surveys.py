@@ -14,10 +14,10 @@ def find_file(file_name, directory_name):
                 file_path = os.path.join(path,name)
                 files_found.append(file_path)
     return files_found
-find_file('qualtricsSurveyConfig.json', '3_qualtrics_survey_upload')
+find_file('qualtricsSurveyConfig.json', 'function')
 
 
-strConfigFileLocation = "./3_qualtrics_survey_upload/qualtricsSurveyConfig.json"
+strConfigFileLocation = "./function/qualtricsSurveyConfig.json"
 
 with open(strConfigFileLocation) as fileConfig:
 	objConfig = json.load(fileConfig)
