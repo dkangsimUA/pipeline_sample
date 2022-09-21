@@ -7,5 +7,5 @@ Simply clone this repo to RStudio and open `run_this_pipeline.R` and compare the
 
 **The COLOMBIA script runs without error, but the MEXICO does.**
 
-Error message: __JSONDecodeError: Expecting value: line 1 column 1 (char0)
+Error message: __JSONDecodeError: Expecting value: line 1 column 1 (char0)__
 
